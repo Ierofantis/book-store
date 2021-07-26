@@ -18,7 +18,6 @@ const Author = sequelize.define('Author', {
   },
 
 }, {
-    underscored: true,
     freezeTableName: true,
   });
 

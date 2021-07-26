@@ -24,6 +24,8 @@ const Publisher = sequelize.define('Publisher', {
       notEmpty: true,
     },
   }
-});
+}, {
+    freezeTableName: true,
+  });
 
 export default Publisher;

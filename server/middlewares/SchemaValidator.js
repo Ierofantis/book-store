@@ -1,10 +1,8 @@
-import { ErrorHandleWrapper } from "./ErrorHandler";
 
 export const SchemaValidator = (schema, property) => {
-    return ErrorHandleWrapper((req, res, next) => {
+    return (req, res, next) => {
         const { error } = schema.validate(req[property]);
         const valid = error == null;
-
         if (valid) {
             next();
         } else {
@@ -13,5 +11,5 @@ export const SchemaValidator = (schema, property) => {
 
             res.status(422).json({ error: message });
         }
-    });
+    };
 };

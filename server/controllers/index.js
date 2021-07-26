@@ -1,3 +1,5 @@
-import { createNewBook } from './book';
+import { createNewBook, updateBook, deleteBook } from './book';
+import { createNewPublisher } from './publisher';
+import { createNewAuthor } from './author';
 
-export { createNewBook };
+export { createNewBook, createNewPublisher, createNewAuthor, deleteBook };
