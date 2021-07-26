@@ -42,14 +42,14 @@ module.exports = {
             authorId: {
                 type: Sequelize.INTEGER,
                 references: {
-                    model: 'author',
+                    model: 'Author',
                     key: 'id'
                 },
             },
             publisherId: {
                 type: Sequelize.INTEGER,
                 references: {
-                    model: 'publisher',
+                    model: 'Publisher',
                     key: 'id'
                 },
             },

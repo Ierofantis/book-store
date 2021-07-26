@@ -1,24 +1,26 @@
 
-module.exports = (sequelize, Sequelize) => {
-  const author = sequelize.define("author", {
-    first_name: {
-      type: Sequelize.STRING
-    },
-    last_name: {
-      type: Sequelize.STRING
-    },
-    email: {
-      unique: true,
-      type: Sequelize.STRING
-    },
-    birth: {
-      type: Sequelize.DATE
-    },
+import sequelize from '../config/database';
+import { DataTypes } from 'sequelize';
 
-  }, {
-      underscored: true,
-      freezeTableName: true,
-    });
+const Author = sequelize.define('Author', {
+  first_name: {
+    type: DataTypes.STRING
+  },
+  last_name: {
+    type: DataTypes.STRING
+  },
+  email: {
+    unique: true,
+    type: DataTypes.STRING
+  },
+  birth: {
+    type: DataTypes.DATE
+  },
 
-  return author;
-};
+}, {
+    underscored: true,
+    freezeTableName: true,
+  });
+
+export default Author;
+

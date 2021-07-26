@@ -1,9 +1,9 @@
 import { author, publisher, Book } from '../models'
 import { ErrorHandleWrapper } from "../middlewares/ErrorHandler";
 
-/* Create new Book  */
+/* Create new Author  */
 
-export const createNewBook = ErrorHandleWrapper(async (req, res) => {
+export const createNewAuthor = ErrorHandleWrapper(async (req, res) => {
 
   let { title, isbn, description, visible } = req.body;
 

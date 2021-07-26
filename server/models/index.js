@@ -1,31 +1,21 @@
-const dbConfig = require("../config/keys");
-
-const Sequelize = require("sequelize");
-const sequelize = new Sequelize(dbConfig.pgDatabase, dbConfig.pgUser, dbConfig.pgPassword, {
-  host: dbConfig.PGHOST,
-  dialect: "postgres",
-  port: dbConfig.pgPort,
-});
-
-const db = {};
-
-db.Sequelize = Sequelize;
-db.sequelize = sequelize;
-
-db.Book = require("./book.js")(sequelize, Sequelize);
-db.author = require("./author.js")(sequelize, Sequelize);
-db.publisher = require("./publisher.js")(sequelize, Sequelize);
+import Book from './book';
+import Author from './author';
+import Publisher from './publisher';
 
 //authors
-db.Book.belongsTo(db.author, {
+Book.belongsTo(Author, {
   foreignKey: "authorId",
   as: "author"
 });
 
 //publishers
-db.Book.belongsTo(db.publisher, {
+Book.belongsTo(Publisher, {
   foreignKey: "publisherId",
   as: "publisher"
 });
 
-module.exports = db;
+export {
+  Book,
+  Author,
+  Publisher
+}
