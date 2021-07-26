@@ -1,0 +1,38 @@
+version: '3.7'
+services:
+  postgres:
+    image: 'postgres:11.5'
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_DB=books
+      - POSTGRES_PASSWORD=books
+      - PGDATA=/var/lib/postgresql/data/pgdata
+  api:
+    depends_on:
+      - postgres
+    build:
+      dockerfile: Dockerfile.dev
+      context: .
+    init: true
+    restart: unless-stopped
+    ports:
+      - '5000:5000'
+    volumes:
+      - .:/app/node_app
+      - ./package.json:/app/package.json
+      - ./package-lock.json:/app/package-lock.json
+      - notused:/app/node_modules
+    environment:
+      - TZ=Europe/Athens
+      - LC_CTYPE=en_US.UTF-8
+      - LC_ALL=en_US.UTF-8
+      - PGUSER=root
+      - PGHOST=postgres
+      - PGDATABASE=books
+      - PGPASSWORD=books
+      - PGPORT=5432
+
+volumes:
+  notused:
