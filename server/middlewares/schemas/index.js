@@ -2,7 +2,6 @@ import Joi from "joi";
 
 export const schemas = {
     book: Joi.object().keys({
-        id: Joi.number().allow(null).optional(),
         title: Joi.string().required(),
         isbn: Joi.number().required(),
         authorId: Joi.number().allow(null).optional(),

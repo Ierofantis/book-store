@@ -1,4 +1,4 @@
-import { Author, Publisher, Book } from '../models'
+import { Author } from '../models'
 import { ErrorHandleWrapper } from "../middlewares/ErrorHandler";
 
 /* Create new Author  */
