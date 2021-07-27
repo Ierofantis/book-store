@@ -4,12 +4,7 @@ export const schemas = {
     book: Joi.object().keys({
         id: Joi.number().allow(null).optional(),
         title: Joi.string().allow("").optional(),
-        isbn: Joi.string()
-            .guid({
-                version: ["uuidv4", "uuidv5"],
-            })
-            .allow(null)
-            .optional(),
+        isbn: Joi.number().allow(null).optional(),
         authorId: Joi.number().allow(null).optional(),
         publisherId: Joi.number().allow(null).optional(),
         description: Joi.string().allow("").optional(),

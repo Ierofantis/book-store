@@ -18,7 +18,7 @@ module.exports = {
                 },
             },
             isbn: {
-                type: Sequelize.INTEGER,
+                type: Sequelize.BIGINT,
                 unique: true,
                 allowNull: false,
                 validate: {
@@ -53,15 +53,16 @@ module.exports = {
                     key: 'id'
                 },
             },
-            createdAt: {
+            created_at: {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            updatedAt: {
+            updated_at: {
                 allowNull: false,
                 type: Sequelize.DATE
             }
         }, {
+                timestamps: false,
                 freezeTableName: true,
             });
     },

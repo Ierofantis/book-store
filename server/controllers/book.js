@@ -5,7 +5,8 @@ import { ErrorHandleWrapper } from "../middlewares/ErrorHandler";
 
 export const createNewBook = ErrorHandleWrapper(async (req, res) => {
 
-  let { title, isbn, description, visible } = req.body;
+  let { title, description, visible } = req.body;
+  const isbn = new Date().valueOf();
 
   await Book.create({
     title,
@@ -45,5 +46,25 @@ export const deleteBook = ErrorHandleWrapper(async (req, res) => {
   await Book.destroy({ where: { id } })
 
   res.status(200).json({ success: true, msg: 'Book deleted' });
+
+});
+
+/* Get Book  */
+
+export const getBooks = ErrorHandleWrapper(async (req, res) => {
+
+  const { bookId } = req.query;
+  let books;
+
+  if (bookId) {
+    books = await Book.findOne({ raw: true, where: { id: bookId } });
+  } else {
+    books = await Book.findAll({
+      raw: true,
+      order: [["created_at", "DESC"]],
+    });
+  }
+  console.log(books)
+  res.status(200).json({ books });
 
 });

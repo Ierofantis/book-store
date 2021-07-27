@@ -11,7 +11,7 @@ const Book = sequelize.define('Book', {
     },
   },
   isbn: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.BIGINT,
     unique: true,
     allowNull: false,
     validate: {
