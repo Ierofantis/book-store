@@ -16,7 +16,6 @@ const Author = sequelize.define('Author', {
   birth: {
     type: DataTypes.DATE
   },
-
 }, {
     freezeTableName: true,
   });

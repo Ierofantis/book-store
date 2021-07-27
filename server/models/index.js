@@ -5,13 +5,13 @@ import Publisher from './publisher';
 //authors
 Book.belongsTo(Author, {
   foreignKey: "authorId",
-  as: "author"
+  // as: "author"
 });
 
 //publishers
 Book.belongsTo(Publisher, {
   foreignKey: "publisherId",
-  as: "publisher"
+  // as: "publisher"
 });
 
 export {

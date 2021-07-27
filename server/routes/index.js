@@ -13,8 +13,13 @@ router.get('/get-books', controller.getBooks);
 /* POST */
 
 router.post('/add-book', SchemaValidator(schemas.book, 'body'), controller.createNewBook);
+router.post('/add-many-books', controller.createBooks);
+
 router.post('/add-publisher', SchemaValidator(schemas.publisher, 'body'), controller.createNewPublisher);
+router.post('/add-many-publishers', controller.createPublishers);
+
 router.post('/add-author', SchemaValidator(schemas.author, 'body'), controller.createNewAuthor);
+router.post('/add-many-authors', controller.createAuthors);
 
 /* PUT */
 

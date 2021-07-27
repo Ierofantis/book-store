@@ -3,7 +3,7 @@ import sequelize from '../config/database';
 import { DataTypes } from 'sequelize';
 
 const Publisher = sequelize.define('Publisher', {
-  username: {
+  name: {
     type: DataTypes.STRING,
     unique: true,
     allowNull: false,
@@ -11,12 +11,12 @@ const Publisher = sequelize.define('Publisher', {
       notEmpty: true,
     },
   },
-  email: {
-    type: DataTypes.STRING,
+  telephone: {
+    type: DataTypes.INTEGER,
     unique: true,
     allowNull: false,
   },
-  password: {
+  address: {
     type: DataTypes.STRING,
     unique: true,
     allowNull: false,
