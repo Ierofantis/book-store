@@ -17,3 +17,11 @@
 # Creating tables in the database
 
 5) For creating the tables in the database open another terminal and navigate to book-store and type `npx sequelize-cli db:migrate` ( after you have installed all the needed packages `npm install` )
+
+6) For every table I have endpoints for adding mock data (`add-many-books`, `add-many-publishers`, `add-many-authors`)
+
+# TODOS
+
+1) Validations are simple and required. For addresses and telephones the validations can be more complicated, but it depends from func requirements. The same goes for the length of the chars.
+2) Integrations tests (not necessary for the moment)
+
