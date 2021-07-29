@@ -23,5 +23,5 @@
 # TODOS
 
 1) Validations are simple and required. For addresses and telephones the validations can be more complicated, but it depends from func requirements. The same goes for the length of the chars.
-2) Integrations tests (not necessary for the moment)
+2) Integrations tests (not necessary at the moment)
 
