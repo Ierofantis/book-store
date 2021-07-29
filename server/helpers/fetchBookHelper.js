@@ -48,20 +48,22 @@ export class fetchBookHelper {
                 include: [{
                     model: Author,
                     attributes: ["first_name", "last_name"],
-                    order: [
-                        [Author, 'last_name', 'ASC'],
-                    ],
                     required: false,
                 }],
-                attributes: ["title", "description", "isbn"],
+                attributes: ["title", "description", "isbn", "created_at"],
                 order: [
-                    ['created_at', 'DESC']
+                    [Author, 'last_name', 'ASC'],
+                    ['created_at', 'DESC'],
                 ],
             });
 
             let listOfBooks = await getBooks;
 
-            this.books = await listOfBooks.map(b => ({ "title": b.title, "description": this.truncate(b.description), "isbn": b.isbn, "author_full_name": b['Author.first_name'] + " " + b['Author.last_name'] }))
+            this.books = await listOfBooks.map(b => ({
+                "title": b.title, "description": this.truncate(b.description),
+                "isbn": b.isbn, "author_full_name": b['Author.first_name'] + " " + b['Author.last_name'],
+                "created_at": b.created_at
+            }))
         }
 
         return this.books
